@@ -1,0 +1,69 @@
+Opening Scene:
+Alternate Title: Protagonist stares out of window and then sits down in chair
+Isolation and loneliness of the protagonist, the protagonist longing for meaning and connection, the cost of success and working on a project as it is late at night, the protagonist working and awake while most of the rest are asleep.
+
+Scene 2:
+Alternate Title: Aggressive keyboard typing
+The protagonist is working intensely on their project, typing rapidly and aggressively, showing their desperation and urgency as well as the timing of the night.
+
+Scene 3:
+Alternate Title: Zoom into Toronto
+The camera zooms into Toronto as it is meant to show ambition and the aspiration to work within the software development industry within the city, it is also meant to show the sheer size of teh city as well as the distance away and the subsequent journey it requires.
+
+Quote Slide: "Everything comes from something before." - Northrop Frye
+
+Scene 4:
+Highly sped up game of Tetris meant to show the grow of stress as the journey continues and the setbacks and achievements as well with the row clearances, to show that it is a long journey which requires thinking and planning.
+
+Scene 5:
+Highly sped of game of Chess meant to be a nod to my personal self and the strategic thinking required to succeed in the software development industry as well as a nod to The Social Network with the elo window planning scene, the protagonist loses which is foreshadowing the eventual failure of the project.
+
+Scene 6:
+Timelapse of the protagonist working on their project and turning to Stack Overflow for help, highlights an old cliche of software development and the reliance on online resources, also echoing the idea that work is not original, just rehashed former work. Also shows the resiliance and perseverance of the protagonist as he continues to work and try to solve the issues despite the sheer number of issues and the amount of time it takes.
+
+Scene 7:
+Summary: The protagonist uses ChatGPT to prompt for new ideas as well as checks GitHub intermittently when they find a cool project just to find many others like it, then the protagonist has an epiphany and decides to ask ChatGPT about the logistics of creating the metaverse.
+This scene is meant to highlight many tropes of the software development industry as well as how long it takes to find an idea worth pursuing just to find out that it is a common project that many other people have created already. This scene also serves as the first formal introduction to the actual project which the protagonist works on: the metaverse. This project was chosen as it allows the user to escape reality and live in a society which they can mold and shape to their liking allowing them to live out their wildest dreams without any discomfort.
+
+Line Slide: So what is Immersion actually about?
+
+Scene 8:
+"A student building a project."
+"But really?"
+"It's about why people keep creating things when everything already exists. It's about the engineering mindset, it's about wanting to build, it's about creation, ambition, drive, greed, dissatisfaction, and all the inherent human flaws"
+The director is shown in this interview to be wearing a red formal shirt which is meant to be juxtaposed with the green t-shirt of the protagonist, with both representing the duality of the project and the protagonist's journey as well as contrasting the original dark aesthetic of the film. The director explains what Immersion is actually about. 
+
+Scene 9:
+Sudden cut to the protagonist pressing CTRL + C and CTRl + V to continously copy and paste, again referring to the idea that everything comes from something before as well as showcasing a lack of originality and the reliance on AI and online resources through another trope of software engineers.
+
+Scene 10:
+Sped up version of the protagonist scrolling LinkedIn, browsing their own GitHub profile, and searching up the net worth of successful software engineers and entrepreneurs.
+This scene is meant to highlight the protagonist's obsession with success and validation through the idea of perception vs reality with the primary example being LinkedIn, a hallmark of the software engineering and professional industry, as well as their desire to be the next big thing in the tech industry which is created by a need to be recognized and validated similar to their friends who are working on so many intriguing and successful projects. Browsing their own GitHub profile is meant to symbolize and show the protagonist wishing they could rewind time as they are reminiscing about the past and how good they used to be at coding and creating as they look at the number of contributions they have. This is also another philosophical element as the protagonist seeks to find meaning and purpose in their work and life through the number of contributions on GitHub. The protagonist searching up the net worth of successful software engineers and entrepreneurs is meant to show the loss of hope as they look for the light at the end of the tunnel. 
+
+Line Card: A tale of unchecked ambition. -> A tale of checked ambition
+
+Scene 11:
+The protagonist (marked by the green t-shirt) crashing out and saying "YOU KNOW WHY FRANKENSTEIN FAILED: HE DIDN'T BELIEVE IN HIMSELF, HE BEAT NATURE, HE CONQUERED DEATH, THEN HE BECAME AFRAID. You think Mark Zuckerberg stopped when people hated him for Facemash? This is what me and him share, we're not scared of society or criticism, we're eccentrics not weirdos. THIS IS MY PRODUCT, THIS IS MY MOMENT, I'M NOT GOING TO LET THAT HAPPEN TO ME"
+This is meant to be a reference to Frankenstein and the protagonist's idea of Frankenstein's flaw which is generally interpreted to be his ambition as opposed to the cowardice of Frankenstein. The protagonist believes that they are not like Frankenstein because they believe in themselves and are not afraid of society or criticism. The protagonist compares themselves to Mark Zuckerberg, which again highlights the hubris and ego of the protagonist. The protagonist recognizes his role as an eccentric, with reference to Of Weirdos and Eccentrics by Pico Iyer. The final remarks represent the protagonist's determination to succeed and not give up on their dreams.
+
+Scene 12:
+The director talking in all clips is meant to be like an interview via video call with a reporter, hence staring at the screen above. The director talking about the fact that the journey is better than the destination connecting to works like Foster's How to Read Literature like a Professor as well as The Singing SIlence by Eva Wuorio.
+
+Scene 13:
+"Huxley predicted a world where people constantly chase comfort. A perfectly fine world may I add, a world that technology helps us get close to, so why can't I build it?"
+"But literature helped me realize the problem isn't technology, isn't enjoyment, isn't soma."
+"The problem is us."
+"We always want something new."
+While this narration is happening, the protagonist finishes up a feature and marks it as done on their ideas.txt file meant to store all their ideas and features they want to implement. However, once the feature is marked as done, we are able to see the number of work that has gone into the project through the number of features they have implemented as well as the number of features they are yet to implement. However, following marking the feature as done, the protagonist closes the project and moves on to their desktop and creates a folder for a new project meant to represent insatisfaction with working on the project and the idea of getting tired, as well as the constant moving of the industry as it is and the reality of projects as a software engineer, this is something that the Director as well as many others in the field have experienced.
+
+Line Card: Director's Note
+
+This marks the end of the trailer and the remaining parts talk about the Director's inspirations in terms of film and literature as well as the state of the current industry while also mixing in the themes explored in the trailer.
+
+"You know this film is my first foray into filmmaking and directing, and I thought it was a really intriguing plot to explore because it's something that's very relevant to today's world and stands to be a metaphor for various things like change, but it makes the process interesting, or at least I hope it does, and that is the motive to use metaphor right, to help understand in a way that is more effective, in a way that is more entertaining."
+
+Grade 12 English changed me, introduced me to the idea of storytelling as well as this theme of people letting ambition get the best of them and it is something that I have seen in some of my favorite works like Frankenstein, Oppenheimer, as well as Jurassic Park. I think Jurassic Park is one of the best movies of all time cause it serves as a thrilling yet profound tale about the consequences of unchecked ambition and the dangers of playing god with so many complex themes and commentary which still stands today about the dangers of technology and the famous Jeff Goldblum quote that goes "Your scientists were so preoccupied with whether or not they could, that they didn't stop to think if they should", I can reveal the pages of notes i took while watching it and analyzing it for the film, the thing about Jurassic Park is that it could be a horror film with the tension and tone that it encompasses right, but it doesnt, and I think that's something to reflect upon. I remember reading Stephen King's perspective on Why We Crave Horror Movies and while I do think that it can act as a release and be entertaining, I think that it is overshadowed by the true fact which is that the best movies, in my opinion, and the box office to an extent, are the ones which examine the detriments of human behavior to the extreme, and this is proven by the likes of Obsession and Backrooms which are blazing the box office as we speak right, they're not just random jumpscarey gory content, they're well written and well made films which examine various themes like the ideas of love, loss, and grief, and how they can drive people to the edge of sanity like Pearl with ambition and The Shining with loneliness, isolation and so many other great examples.
+(Clips from Oppenheimer, the famous scene from Jurassic Park, a scene from Obsession, as well as the trailer to Backrooms are shown)
+
+I could go on and on about my inspirations with film and what my movie: Immersion, actually encompasses but I will let the film speak for itself. See it in theatres this July! and in case I don't see ya, good afternoon, good evening, and good night!"
+
