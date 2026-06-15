@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>IMMERSION — Tickets & Premiere | The Single Story of a Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #03030f;
+            font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            color: #eef2ff;
+        }
+
+        /* ----- IMMERSIVE BACKGROUND (same as title card) ----- */
+        .cinema-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, #0a0a1a, #010105);
+            z-index: -2;
+        }
+
+        .grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=');
+            background-repeat: repeat;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+            animation: grainShift 12s steps(2) infinite;
+            z-index: -1;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(2%, 1%); }
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 4px);
+            pointer-events: none;
+            opacity: 0.35;
+            z-index: -1;
+        }
+
+        /* floating particles (same as original) */
+        .tech-particle {
+            position: fixed;
+            background: rgba(90, 140, 255, 0.25);
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: floatParticles 16s infinite linear;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatParticles {
+            0% { transform: translateY(0vh) translateX(0px); opacity: 0;}
+            20% { opacity: 0.7;}
+            80% { opacity: 0.4;}
+            100% { transform: translateY(-120vh) translateX(40px); opacity: 0;}
+        }
+
+        /* main wrapper */
+        .ticket-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* header navigation / branding */
+        .film-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(100, 130, 240, 0.4);
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo-area {
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-main {
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #eef2ff, #b9c3f0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            color: #7e8ed6;
+            letter-spacing: 2px;
+        }
+
+        .header-links a {
+            color: #b1bef5;
+            text-decoration: none;
+            margin-left: 1.8rem;
+            font-size: 0.9rem;
+            transition: 0.2s;
+            border-bottom: 1px dotted transparent;
+        }
+
+        .header-links a:hover {
+            color: white;
+            border-bottom: 1px solid #6285ff;
+        }
+
+        /* double column layout: left info / right QR + ticket CTA */
+        .info-qr-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .film-info {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .qr-ticket-block {
+            flex: 1.2;
+            min-width: 260px;
+            background: rgba(10, 12, 30, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(90, 130, 255, 0.35);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        /* immersive title treatment */
+        .film-title-head {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #b9c6ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #8f9eff;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #5f7cfa;
+            padding-left: 1rem;
+        }
+
+        .synopsis {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #cdd9ff;
+            margin: 1.5rem 0;
+            background: rgba(0,0,0,0.3);
+            padding: 1.2rem;
+            border-radius: 24px;
+            border: 0.5px solid rgba(100,130,255,0.25);
+        }
+
+        .details-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .details-list li {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #bfccff;
+        }
+
+        .details-list li strong {
+            color: #92a3ff;
+            font-weight: 500;
+            min-width: 95px;
+        }
+
+        /* QR Code styling */
+        .qr-code-box {
+            background: white;
+            padding: 1rem;
+            display: inline-block;
+            border-radius: 28px;
+            margin: 0.5rem 0 1.2rem;
+            box-shadow: 0 0 0 4px rgba(90,130,255,0.3), 0 0 0 8px rgba(0,0,0,0.2);
+        }
+
+        .qr-code-box canvas, .qr-code-box img {
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            width: 180px;
+            height: 180px;
+        }
+
+        .btn-ticket {
+            background: linear-gradient(95deg, #2b3d9e, #16215e);
+            border: none;
+            padding: 1rem 1.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.25s;
+            margin: 1rem 0 0.8rem;
+            width: 100%;
+            font-family: inherit;
+            letter-spacing: 1px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(100, 150, 255, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-ticket:hover {
+            background: linear-gradient(95deg, #3c52b5, #1f2b72);
+            transform: scale(1.02);
+            box-shadow: 0 8px 20px rgba(70, 100, 255, 0.4);
+            border-color: #7b96ff;
+        }
+
+        .official-link {
+            font-size: 0.75rem;
+            color: #7f8eda;
+            margin-top: 1rem;
+            word-break: break-all;
+        }
+
+        .official-link a {
+            color: #b7c4ff;
+            text-decoration: none;
+            border-bottom: 1px dashed #5f73cf;
+        }
+
+        /* filmmaker / quote + meta */
+        .director-note {
+            margin-top: 2.5rem;
+            border-top: 1px solid rgba(100,130,240,0.3);
+            padding-top: 1.8rem;
+            font-style: normal;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .quote-mini {
+            font-family: 'Courier New', monospace;
+            background: rgba(5, 5, 20, 0.5);
+            padding: 0.5rem 1rem;
+            border-left: 3px solid #5f7cfa;
+            font-size: 0.85rem;
+            color: #b9c7ff;
+        }
+
+        .badge-cinema {
+            font-size: 0.7rem;
+            color: #5b6fc9;
+        }
+
+        /* additional micro-interactions */
+        .cursor-flicker {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #5b6fcb;
+            z-index: 20;
+            opacity: 0.6;
+            animation: blink 1.2s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .meta-tag {
+            position: fixed;
+            bottom: 20px;
+            right: 24px;
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: #3f4e9e;
+            background: rgba(0,0,0,0.4);
+            padding: 4px 12px;
+            border-radius: 40px;
+            backdrop-filter: blur(6px);
+            letter-spacing: 0.8px;
+            z-index: 20;
+            border: 0.5px solid rgba(100,130,255,0.3);
+            pointer-events: none;
+        }
+
+        /* showtimes preview */
+        .showtime-preview {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            margin-top: 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .showtime-preview h4 {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            color: #b1bef5;
+        }
+
+        .showtimes-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .time-slot {
+            background: #111522;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 0.5px solid #3a4eb0;
+            color: #cddcff;
+        }
+
+        @media (max-width: 780px) {
+            .ticket-container {
+                padding: 1.2rem;
+            }
+            .film-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .header-links a {
+                margin-left: 0;
+                margin-right: 1.2rem;
+            }
+        }
+
+        /* pulsing glow for QR block */
+        .qr-ticket-block {
+            transition: all 0.3s;
+        }
+
+        .glow-pulse {
+            animation: borderPulse 2s infinite;
+        }
+
+        @keyframes borderPulse {
+            0% { border-color: rgba(90, 130, 255, 0.3); box-shadow: 0 0 0 0 rgba(90,130,255,0.2);}
+            50% { border-color: rgba(90, 160, 255, 0.8); box-shadow: 0 0 0 6px rgba(90,130,255,0.2);}
+            100% { border-color: rgba(90, 130, 255, 0.3); box-shadow: 0 0 0 0 rgba(90,130,255,0);}
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<div class="cinema-backdrop"></div>
+<div class="grain"></div>
+<div class="scanlines"></div>
+<div id="particles-container"></div>
+
+<div class="ticket-container">
+    <div class="film-header">
+        <div class="logo-area">
+            <div class="logo-main">IMMERSION::THE FILM</div>
+            <div class="logo-sub">— THE SINGLE STORY OF A DEVELOPER —</div>
+        </div>
+        <div class="header-links">
+            <a href="#" id="officialSiteBtn">OFFICIAL SITE</a>
+            <a href="#" id="trailerBtn">TRAILER (SOON)</a>
+            <a href="#" id="pressBtn">PRESS NOTES</a>
+        </div>
+    </div>
+
+    <div class="info-qr-grid">
+        <!-- LEFT: detailed film information + reading more -->
+        <div class="film-info">
+            <div class="film-title-head">IMMERSION:<br>The Single Story of a Developer</div>
+            <div class="tagline">NOW FILMING · A CINEMATIC DISRUPTION</div>
+            <div class="synopsis">
+                A non-linear odyssey through code, ambition, and the ghosts of creation. <strong>IMMERSION</strong> weaves together the visceral intensity of <em>The Social Network</em>, the moral fractures of <em>Frankenstein</em>, and the poetic rebellion of <em>Dead Poets Society</em>. Witness a young developer’s rise from late-night commits to an empire of algorithms — and the singular story that haunts the architecture of modern dreams.<br><br>
+                “Everything comes from something before.” — Northrop Frye. A meditation on ambition, the ethics of innovation, and the danger of a single narrative. Shot in Toronto & the digital sprawl.
+            </div>
+            <ul class="details-list">
+                <li><strong>Directed by</strong> Sarveshwar Senthil Kumar</li>
+                <li><strong>Genre</strong> Techno-Psychological Drama / Essay Film</li>
+                <li><strong>Runtime</strong> 98 min (Director's Cut)</li>
+                <li><strong>Premiere</strong> Spring 2025 — TIFF Bell Lightbox</li>
+                <li><strong>Languages</strong> English, with fragments of code & silence</li>
+            </ul>
+            <div class="director-note">
+                <div class="quote-mini">“IMMERSION questions the myth of the lone genius. It’s a horror story, a coming-of-code, and a love letter to the machines that shape us.”</div>
+                <div class="badge-cinema">OFFICIAL SELECTION — Future of Cinema Forum</div>
+            </div>
+            <!-- extra reading / official site embed preview link -->
+            <div class="showtime-preview">
+                <h4>⧩ ADVANCE SCREENINGS (Toronto / NYC / Virtual)</h4>
+                <div class="showtimes-flex">
+                    <div class="time-slot">MAY 15 — 7:30PM</div>
+                    <div class="time-slot">MAY 16 — 9:00PM</div>
+                    <div class="time-slot">MAY 17 — 4:00PM (Q&A)</div>
+                    <div class="time-slot">MAY 18 — DIGITAL PREMIERE</div>
+                </div>
+                <div style="font-size:0.7rem; margin-top: 12px; color:#8695df;">* Early access via ticket reservation. More showtimes added weekly.</div>
+            </div>
+        </div>
+
+        <!-- RIGHT: QR Code + Ticket CTA / Official Link integration -->
+        <div class="qr-ticket-block" id="qrBlock">
+            <div style="font-size: 1.2rem; font-weight: 500; letter-spacing: 1px;">⧉ SECURE TICKETS</div>
+            <div style="font-size: 0.7rem; margin: 0.5rem 0 1rem; color:#b1c0ff">Scan to explore the full experience</div>
+            <div id="qrcode" class="qr-code-box"></div>
+            <button id="buyTicketBtn" class="btn-ticket">🎟️ RESERVE YOUR SEAT →</button>
+            <div class="official-link">
+                🔗 Official website & extended dossier:<br>
+                <a href="https://sarveshwarsenthilkumar.github.io/Immersion" target="_blank" id="officialUrlLink">sarveshwarsenthilkumar.github.io/Immersion</a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.7rem; border-top: 0.5px dashed rgba(100,130,255,0.4); padding-top: 1rem;">
+                <span style="opacity:0.8;">◈ includes filmmaker’s statement, behind the scenes, and full bibliography ◈</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem; opacity: 0.7; font-size: 0.75rem;">
+        <span style="border-bottom: 1px dotted #6173cf;">#IMMERSIONfilm · A single story is never the whole truth. Experience the non-linear cut.</span>
+    </div>
+</div>
+
+<div class="cursor-flicker">
+    █ TICKET_PORTAL :: OPEN
+</div>
+<div class="meta-tag">
+    ◇ IMMERSION: COLLECTIVE MEMORY ◇
+</div>
+
+<script>
+    // Generate floating particles (same aesthetic)
+    function createParticles() {
+        const container = document.getElementById('particles-container');
+        if (!container) return;
+        const particleCount = 70;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('tech-particle');
+            const size = Math.random() * 3 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 14}s`;
+            particle.style.animationDuration = `${7 + Math.random() * 14}s`;
+            particle.style.opacity = `${0.2 + Math.random() * 0.6}`;
+            particle.style.backgroundColor = `rgba(${70 + Math.random() * 80}, ${100 + Math.random() * 100}, 255, ${0.25 + Math.random() * 0.4})`;
+            container.appendChild(particle);
+        }
+    }
+    
+    // Generate QR Code for the given URL (central QR)
+    function generateQRCode(url) {
+        const qrContainer = document.getElementById('qrcode');
+        if (!qrContainer) return;
+        qrContainer.innerHTML = ""; // clear previous
+        try {
+            // Using QRCode.js library globally
+            new QRCode(qrContainer, {
+                text: url,
+                width: 180,
+                height: 180,
+                colorDark: "#0a0a2a",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.M
+            });
+            // Additional styling wrapper
+            const wrapper = qrContainer.querySelector('img') || qrContainer.querySelector('canvas');
+            if(wrapper) {
+                wrapper.style.borderRadius = "20px";
+                wrapper.style.width = "180px";
+                wrapper.style.height = "180px";
+            }
+        } catch(e) {
+            qrContainer.innerHTML = `<div style="background:white; padding:16px; border-radius:20px;">⚠️ QR placeholder<br><span style="font-size:10px;">${url}</span></div>`;
+        }
+    }
+    
+    // subtle glow for QR block on hover/pulse
+    function addCinematicPulse() {
+        const qrBlock = document.getElementById('qrBlock');
+        if(qrBlock) {
+            setInterval(() => {
+                qrBlock.classList.add('glow-pulse');
+                setTimeout(() => {
+                    qrBlock.classList.remove('glow-pulse');
+                }, 1000);
+            }, 3800);
+        }
+    }
+
+    // ticket button interaction + same style toast / external reservation simulation (mock purchase flow)
+    function initTicketActions() {
+        const buyBtn = document.getElementById('buyTicketBtn');
+        const officialBtn = document.getElementById('officialSiteBtn');
+        const trailerBtn = document.getElementById('trailerBtn');
+        const pressBtn = document.getElementById('pressBtn');
+        const officialLink = document.getElementById('officialUrlLink');
+        const mainOfficialSite = "https://sarveshwarsenthilkumar.github.io/Immersion";
+
+        // ticket redirect: open external ticketing placeholder (or official site ticket section)
+        if(buyBtn) {
+            buyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // since it's a real / immersive demo, we open the official site plus a custom hash for tickets 
+                // but we simulate a "booking page" coming soon – but direct to official site in same spirit.
+                // I'll open official site with a ?tickets flag - respectful.
+                window.open(mainOfficialSite + "#tickets", "_blank");
+                // small visual feedback:
+                buyBtn.textContent = "✓ REDIRECTING TO BOX OFFICE...";
+                setTimeout(() => {
+                    buyBtn.textContent = "🎟️ RESERVE YOUR SEAT →";
+                }, 1500);
+            });
+        }
+        
+        // header links behaviour: official site main, trailer (coming soon) etc.
+        if(officialBtn) {
+            officialBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(mainOfficialSite, "_blank");
+            });
+        }
+        if(trailerBtn) {
+            trailerBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("🎬 Teaser trailer arrives March 2025. Stay immersed. Sign up for newsletter via official site.");
+            });
+        }
+        if(pressBtn) {
+            pressBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(mainOfficialSite + "#press", "_blank");
+            });
+        }
+        if(officialLink) {
+            officialLink.addEventListener('click', (e) => {
+                // already has target="_blank", ensure it's correct
+            });
+        }
+
+        // also add for any external click: the "official site" anchor the url direct.
+        const officialUrlATag = document.querySelector('.official-link a');
+        if(officialUrlATag) {
+            officialUrlATag.setAttribute('href', mainOfficialSite);
+            officialUrlATag.setAttribute('target', '_blank');
+        }
+    }
+    
+    // adding subtle typewriter reference and Frankenstein homage (consistent with original aesthetic)
+    function addAtmosphereNodes() {
+        const container = document.querySelector('.ticket-container');
+        const refDiv = document.createElement('div');
+        refDiv.style.position = 'fixed';
+        refDiv.style.bottom = '12%';
+        refDiv.style.left = '2%';
+        refDiv.style.fontSize = '0.65rem';
+        refDiv.style.fontFamily = "'Courier New'";
+        refDiv.style.color = '#5b6fcd';
+        refDiv.style.background = 'rgba(0,0,0,0.3)';
+        refDiv.style.padding = '2px 12px';
+        refDiv.style.borderRadius = '30px';
+        refDiv.style.backdropFilter = 'blur(4px)';
+        refDiv.style.zIndex = '20';
+        refDiv.style.pointerEvents = 'none';
+        refDiv.innerText = '“Why Crave Horror? → IMMERSION examines the monster inside the machine.”';
+        document.body.appendChild(refDiv);
+        
+        const easterEgg = document.createElement('div');
+        easterEgg.style.position = 'fixed';
+        easterEgg.style.top = '15%';
+        easterEgg.style.right = '10px';
+        easterEgg.style.transform = 'rotate(90deg)';
+        easterEgg.style.transformOrigin = 'right';
+        easterEgg.style.fontSize = '0.6rem';
+        easterEgg.style.color = '#677ad3';
+        easterEgg.style.whiteSpace = 'nowrap';
+        easterEgg.style.opacity = '0.45';
+        easterEgg.style.fontFamily = 'monospace';
+        easterEgg.innerText = 'FRANKENSTEIN COMPLEX · ECCENTRIC CODE POETICS';
+        document.body.appendChild(easterEgg);
+    }
+
+    // ensure qr code points to official site, and we provide an extra info card about tickets
+    function initQRAndRedirect() {
+        const targetUrl = "https://sarveshwarsenthilkumar.github.io/Immersion";
+        generateQRCode(targetUrl);
+        
+        // optional: Add click on qr code area to open site
+        const qrBox = document.getElementById('qrcode');
+        if(qrBox) {
+            qrBox.style.cursor = 'pointer';
+            qrBox.addEventListener('click', () => {
+                window.open(targetUrl, '_blank');
+            });
+        }
+    }
+
+    // extra toggle: show that the site includes more info and reading about film
+    function addReadingMoreHint() {
+        const synopsisDiv = document.querySelector('.synopsis');
+        if(synopsisDiv) {
+            const moreLink = document.createElement('div');
+            moreLink.style.marginTop = '12px';
+            moreLink.style.fontSize = '0.75rem';
+            moreLink.innerHTML = '<a href="#" id="readFullStory" style="color:#99abff; text-decoration:none; border-bottom:1px dashed;">⟳ Read extended essay: "The Single Story of a Developer" →</a>';
+            synopsisDiv.appendChild(moreLink);
+            const readBtn = document.getElementById('readFullStory');
+            if(readBtn) {
+                readBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open("https://sarveshwarsenthilkumar.github.io/Immersion#essay", "_blank");
+                });
+            }
+        }
+    }
+    
+    // add small details for grammar poem / dead poets reference
+    function addHiddenLiterary() {
+        const footerGhost = document.createElement('div');
+        footerGhost.style.position = 'fixed';
+        footerGhost.style.bottom = '40px';
+        footerGhost.style.left = '50%';
+        footerGhost.style.transform = 'translateX(-50%)';
+        footerGhost.style.fontSize = '0.55rem';
+        footerGhost.style.color = '#4a5db5';
+        footerGhost.style.background = 'rgba(0,0,0,0.3)';
+        footerGhost.style.padding = '2px 12px';
+        footerGhost.style.borderRadius = '30px';
+        footerGhost.style.whiteSpace = 'nowrap';
+        footerGhost.style.fontFamily = 'monospace';
+        footerGhost.innerText = '“Carpe Diem · Grammar of the Unspoken” — inspired by Dead Poets, Frye & Shelley';
+        document.body.appendChild(footerGhost);
+    }
+    
+    // final initialization
+    function init() {
+        createParticles();
+        initQRAndRedirect();
+        initTicketActions();
+        addCinematicPulse();
+        addAtmosphereNodes();
+        addReadingMoreHint();
+        addHiddenLiterary();
+        // extra "now filming" pulse on title
+        const titleHead = document.querySelector('.film-title-head');
+        if(titleHead) {
+            setInterval(() => {
+                titleHead.style.textShadow = '0 0 6px rgba(100,150,255,0.5)';
+                setTimeout(() => titleHead.style.textShadow = 'none', 400);
+            }, 2800);
+        }
+    }
+    
+    init();
+</script>
+</body>
+</html>
