@@ -1,0 +1,413 @@
+Immersion: A Single Story of a Developer
+
+A Spiritual Successor to The Social Network
+
+The interview/trailer jumps non-linearly between scenes from the film, analysis of literature, and personal reflection.
+
+The result feels like:
+* The Social Network
+* Dead Poets Society
+* Moneyball
+* Frankenstein
+* Trailer
+all at the same time.
+
+Resources:
+https://www.google.com/search?client=opera-gx&q=how+to+zoom+in+in+davinci+resolve&sourceid=opera&ie=UTF-8&oe=UTF-8 - Zooming in Resolve for possible dolly shot
+https://www.google.com/search?client=opera-gx&q=how+to+create+a+proper+movie+title+card+in+resolve&sourceid=opera&ie=UTF-8&oe=UTF-8 - Title cards in Resolve
+
+Connect to Foster with it's about the journey with self-growth and discovery and transformationnot the destination - done at the end
+
+In crash out, say I don't care what society thinks of me, i guess that makes me an eccentric instead of a weirdo, or worse a normal person. - Done
+
+In one of the interview questions, talk about Why We Crave Horror Movies as a release, say why watch horror movies when you can watch a movie about the every so scary future of technology? - Done
+
+Talk about how I tried to implement a non-linear structure inspired by the likes of Memento and Dunkirk as the method of communicating is as important as the content as can be seen by the "Grammar Poem" where the interesting layout makes a difference. - Done
+
+Talk about how I did not want to make a traditional film filled with cliches and talk about how I listened to the podcast the other day talking about how AI was so detrimental and how I feel it's overblown and unoriginal so I tried to bring a new perspective. - Done
+
+Possibly connect to King Lear
+
+Try to connect to more short stories, and count short stories explicitly
+
+
+Filmed:
+Opening scene without audio
+Typing montage
+
+
+---------------
+
+# OPENING
+
+Black screen.
+Sound of keyboard typing.
+Toronto skyline.
+Soft piano.
+Window reflection.
+
+Voiceover:
+"There was a point where I thought literature was just about books."
+Pause.
+"It's not, movies offer so much more, each item within a frame represents something."
+
+Cut.
+Interview setup.
+Dark room.
+Single chair.
+Camera slowly zooming.
+
+INTERVIEWER:
+"Immersion is a truly unique film reflecting on a plethora of themes and ideas."
+"What inspired it?"
+
+PROTAGONIST:
+"The Social Network to put it simply but also, a quote from Northrop Frye."
+
+Cut to black.
+Text appears:
+EVERYTHING COMES FROM SOMETHING BEFORE.
+
+---
+
+# TRAILER MONTAGE
+Fast cuts.
+Tetris victory screen.
+ChatGPT.
+Stack Overflow.
+LinkedIn.
+GitHub graph.
+Chess board.
+Night coding.
+Error messages.
+
+The Social Network clip.
+
+Dead Poets Society clip.
+
+Voiceover:
+"I thought originality meant creating something nobody had ever seen before."
+
+Cut.
+
+Searching:
+UNIQUE STARTUP IDEAS
+
+Results:
+1000 identical projects. Show scrolling GitHub repos and constantly prompting ChatGPT for more ideas.
+
+Voiceover:
+"Then Frye taught me that every story has already been told."
+
+---
+
+# INTERVIEW SECTION 1
+
+INTERVIEWER:
+"So what is Immersion actually about?"
+
+PROTAGONIST:
+"Technically?"
+
+Pause.
+
+"A student building a project."
+
+Smile.
+
+"But really?"
+"It's about why people keep creating things when everything already exists. Itès about the engineering mindset, it's about wanting to build, it's about creation, ambition, drive, greed, dissatisfaction, and all the inherent human flaws"
+
+---
+
+# LESSON 1
+## ORIGINALITY IS A MYTH
+
+Cut to:
+Scene of researching startup ideas.
+Searching.
+Scrolling.
+Rejecting.
+Scrolling.
+Rejecting.
+Scrolling.
+Rejecting.
+
+Instant cut to friend call.
+
+Pause.
+
+PROTAGONIST:
+"What do you mean another social network? Why?"
+
+Pause.
+
+PROTAGONIST:
+"There are already thousands."
+
+Cut.
+
+Interview.
+
+PROTAGONIST:
+
+"Frye changed how I think."
+
+"He argues that stories come from stories."
+
+"So do ideas."
+
+"So does technology."
+
+
+Show:
+Facebook.
+Instagram.
+LinkedIn.
+ChatGPT.
+GitHub.
+Stack Overflow.
+
+PROTAGONIST:
+"I realized I wasn't trying to invent something from nothing."
+"I was participating in a conversation that began long before me."
+
+---
+
+# LESSON 2
+
+## AMBITION HAS A COST
+Cut.
+Night.
+Coding.
+2 AM.
+3 AM.
+4 AM.
+Error.
+Error.
+Error.
+Facepalm.
+
+CTRL C.
+CTRL V.
+CTRL C.
+CTRL V.
+
+Montage.
+Fast cuts.
+LinkedIn success posts.
+Startup founders.
+Billionaire net worths.
+GitHub contributions.
+Coffee.
+No sleep.
+
+End with a crashout: "YOU KNOW WHY FRANKENSTEIN FAILED: HE DIDN'T BELIEVE IN HIMSELF, HE BEAT NATURE, HE CONQUERED DEATH, THEN HE BECAME AFRAID. You think Mark Zuckerberg stopped when people hated him for Facemash? This is what me and him share, we're not scared of society or criticism, we're eccentrics not weirdos. THIS IS MY PRODUCT, THIS IS MY MOMENT, I'M NOT GOING TO LET THAT HAPPEN TO ME
+
+-----------
+
+Cut immediately to interview with me saying:
+"One of the things I've learned is that literature follows an idea that the journey is always better than the destination, one of the lessons by Foster in How to Read Literature like a Professor as well as The Singing Silence, and it is definitely something I've picked up on."
+
+Interview.
+
+PROTAGONIST:
+"The Social Network fascinates me because it asks a question."
+"What happens when achievement becomes more important than everything else?"
+
+---
+
+# LESSON 3
+## HUMANS ARE NEVER SATISFIED
+
+Fast montage.
+Finish project.
+Smile.
+Celebrate.
+Upload project.
+Open ChatGPT.
+
+Search:
+NEW PROJECT IDEAS
+
+Interview.
+
+PROTAGONIST laughing.
+
+"This is my favourite lesson."
+
+Show giant list of unfinished ideas.
+
+PROTAGONIST:
+
+"I thought finishing a project would make me satisfied."
+"It never does."
+
+Cut.
+Brave New World references.
+Infinite scrolling.
+Social media.
+Notifications.
+AI.
+Reels.
+Feeds.
+Algorithms.
+
+PROTAGONIST:
+
+"Huxley predicted a world where people constantly chase comfort. A perfectly fine world may I add, a world that technology helps us get close to, so why can't I build it?"
+
+Pause.
+
+"But literature helped me realize the problem isn't technology, isn't enjoyment, isn't soma."
+"The problem is us."
+"We always want something new."
+
+---
+----------------------
+
+# UNNECESSARY SECTION
+
+# DEAD POETS SOCIETY SECTION
+Camera slowly pushes in.
+Soft music.
+
+PROTAGONIST:
+"One of my favorite movies is Dead Poets Society."
+
+Clip.
+
+Voiceover:
+'We don't read and write poetry because it's cute. We read and write poetry because we are members of the human race.'
+Movies have freed me and allowed me to learn and grow as a person through all these second-hand memories and lessons learned.
+
+-----------------------
+
+Cut.
+Coding montage.
+Photography.
+Chess.
+Projects.
+Science fair.
+Hackathons.
+Club leadership.
+
+PROTAGONIST:
+"I spent years believing value came from productivity."
+
+Pause.
+
+"I've been taught something different."
+
+"People need purpose."
+
+"People need beauty."
+
+"People need stories."
+
+"People need change."
+
+---------
+Fast cut to interview:
+
+"I tried to implement a non-linear structure inspired by the likes of Memento and Dunkirk as the method of communicating is as important as the content as can be seen by the "Grammar Poem" where the interesting layout makes a difference. It's only upon retrospect and rewatching that I realized my favorite film, the Social Network is told through a framed narrative with the deposition as the framing device."
+
+"And... uhh.. also"
+
+"I did not want to make a traditional film filled with cliches cause umm.. I listened to the podcast the other day talking about how AI was so detrimental and how I feel it's overblown and unoriginal so I tried to bring a new perspective while still being able to connect with the audience by adding all the mainstream cliches and tropes about software development and AI by capturing the single story, if you will, of the typical software developer's journey."
+---
+
+# LESSON 4
+
+## CREATION GIVES LIFE MEANING
+
+Interview.
+
+PROTAGONIST:
+"I don't create projects because they're original."
+"I don't create projects because they'll make me rich."
+"I create because making something makes me feel useful."
+
+Show:
+Old photos.
+Chess trophies.
+Science fair.
+School events.
+GitHub graph.
+Club posters.
+Old IDs.
+Nostalgia montage.
+
+PROTAGONIST:
+"The project itself eventually becomes irrelevant."
+"The journey is better than the destination" Reference the Singing Silence
+
+---
+
+# CLIMAX
+Interview.
+
+INTERVIEWER:
+"So after everything you've learned..."
+"What is the message of Immersion?"
+
+Long pause.
+Window shot.
+Toronto skyline.
+
+PROTAGONIST:
+"Why watch horror movies when you can watch a movie about the every so scary future of technology?"
+
+"Humans spend their lives chasing the next achievement."
+"The next project."
+"The next idea."
+"The next version of themselves."
+"But life taught me that every story is connected."
+"And because of that..."
+"We are connected too."
+
+Pause.
+
+"The goal isn't to become completely original."
+"The goal is to contribute something meaningful."
+
+---
+
+# ENDING
+
+Open laptop.
+Create folder:
+
+NEW PROJECT
+
+Cursor blinks.
+
+Open ChatGPT.
+
+Blank prompt.
+
+Smile.
+
+Fade to black.
+
+Dead Poets Society audio:
+
+"O Captain! My Captain!"
+
+Fade.
+
+Text:
+IMMERSION
+
+Everything comes from something before.
+-Northrop Frye
+
+Fade out.
+
+-----------------------
+
+"You know this film is my first foray into filmmaking and directing, and I thought it was a really intriguing plot to explore because it's something that's very relevant to today's world and stands to be a metaphor for various things like change, but it makes the process interesting, or at least I hope it does, and that is the motive to use metaphor right, to help understand in a way that is more effective, in a way that is more entertaining."
+
+Grade 12 English changed me, introduced me to the idea of storytelling as well as this theme of people letting ambition get the best of them and it is something that I have seen in some of my favorite works like Frankenstein, Oppenheimer, as well as Jurassic Park. I think Jurassic Park is one of the best movies of all time cause it serves as a thrilling yet profound tale about the consequences of unchecked ambition and the dangers of playing god with so many complex themes and commentary which still stands today about the dangers of technology and the famous Jeff Goldblum quote that goes "Your scientists were so preoccupied with whether or not they could, that they didn't stop to think if they should", I can reveal the pages of notes i took while watching it and analyzing it for the film, the thing about Jurassic Park is that it could be a horror film with the tension and tone that it encompasses right, but it doesnt, and I think that's something to reflect upon. I remember reading Stephen King's perspective on Why We Crave Horror Movies and while I do think that it can act as a release and be entertaining, I think that it is overshadowed by the true fact which is that the best movies, in my opinion, and the box office to an extent, are the ones which examine the detriments of human behavior to the extreme, and this is proven by the likes of Obsession and Backrooms which are blazing the box office as we speak right, they're not just random jumpscarey gory content, they're well written and well made films which examine various themes like the ideas of love, loss, and grief, and how they can drive people to the edge of sanity like Pearl with ambition and The Shining with loneliness, isolation and so many other great examples.
+
+I could go on and on about my inspirations with film and what my movie: Immersion, actually encompasses but I will let the film speak for itself. See it in theatres this July! and in case I don't see ya, good afternoon, good evening, and good night!
