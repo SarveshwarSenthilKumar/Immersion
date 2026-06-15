@@ -1,3 +1,5 @@
+Here is an HTML document that adds buttons to open the full screenplay text file and its meaning breakdown in new windows, as you requested.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,6 +262,45 @@
             border-color: #7b96ff;
         }
 
+        /* --- NEW: screenplay & meaning buttons (cinematic style) --- */
+        .script-buttons-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-script {
+            background: rgba(20, 25, 55, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(90, 130, 255, 0.6);
+            padding: 0.7rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e0e8ff;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', monospace;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-script:hover {
+            background: #1f2a6e;
+            border-color: #8aa3ff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-script:active {
+            transform: translateY(1px);
+        }
+
         .official-link {
             font-size: 0.75rem;
             color: #7f8eda;
@@ -378,6 +419,10 @@
                 margin-left: 0;
                 margin-right: 1.2rem;
             }
+            .script-buttons-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
         }
 
         /* pulsing glow for QR block */
@@ -393,6 +438,31 @@
             0% { border-color: rgba(90, 130, 255, 0.3); box-shadow: 0 0 0 0 rgba(90,130,255,0.2);}
             50% { border-color: rgba(90, 160, 255, 0.8); box-shadow: 0 0 0 6px rgba(90,130,255,0.2);}
             100% { border-color: rgba(90, 130, 255, 0.3); box-shadow: 0 0 0 0 rgba(90,130,255,0);}
+        }
+
+        /* subtle toast notification */
+        .toast-notify {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #0f122ee6;
+            backdrop-filter: blur(12px);
+            color: #cfdcff;
+            padding: 8px 22px;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            border-left: 3px solid #6285ff;
+            font-family: monospace;
+            z-index: 200;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .toast-notify.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
@@ -449,12 +519,20 @@
             </div>
         </div>
 
-        <!-- RIGHT: QR Code + Ticket CTA / Official Link integration -->
+        <!-- RIGHT: QR Code + Ticket CTA / Official Link integration + NEW SCRIPT BUTTONS -->
         <div class="qr-ticket-block" id="qrBlock">
             <div style="font-size: 1.2rem; font-weight: 500; letter-spacing: 1px;">⧉ SECURE TICKETS</div>
             <div style="font-size: 0.7rem; margin: 0.5rem 0 1rem; color:#b1c0ff">Scan to explore the full experience</div>
             <div id="qrcode" class="qr-code-box"></div>
             <button id="buyTicketBtn" class="btn-ticket">🎟️ RESERVE YOUR SEAT →</button>
+            
+            <!-- NEW: Two immersive buttons to open screenplay and meaning text files -->
+            <div class="script-buttons-group">
+                <button id="openScreenplayBtn" class="btn-script">📜 FULL SCREENPLAY <span style="font-size:0.7rem;">(FullScreenplay.txt)</span></button>
+                <button id="openMeaningBtn" class="btn-script">🔍 MEANING & BREAKDOWN <span style="font-size:0.7rem;">(Meaning.txt)</span></button>
+            </div>
+            <div style="margin-top: 12px; font-size:0.65rem; opacity:0.7;">— Scene-by-scene analysis, literary references & hidden layers —</div>
+
             <div class="official-link">
                 🔗 Official website & extended dossier:<br>
                 <a href="https://sarveshwarsenthilkumar.github.io/Immersion" target="_blank" id="officialUrlLink">sarveshwarsenthilkumar.github.io/Immersion</a>
@@ -476,9 +554,22 @@
 <div class="meta-tag">
     ◇ IMMERSION: COLLECTIVE MEMORY ◇
 </div>
+<!-- Toast notification for file opening feedback -->
+<div id="fileToast" class="toast-notify">📄 Opening file...</div>
 
 <script>
-    // Generate floating particles (same aesthetic)
+    // Helper: show toast message
+    function showToastMessage(msg, duration = 2000) {
+        const toast = document.getElementById('fileToast');
+        if(!toast) return;
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, duration);
+    }
+
+    // GENERATE floating particles
     function createParticles() {
         const container = document.getElementById('particles-container');
         if (!container) return;
@@ -499,13 +590,12 @@
         }
     }
     
-    // Generate QR Code for the given URL (central QR)
+    // Generate QR Code for the given URL
     function generateQRCode(url) {
         const qrContainer = document.getElementById('qrcode');
         if (!qrContainer) return;
-        qrContainer.innerHTML = ""; // clear previous
+        qrContainer.innerHTML = "";
         try {
-            // Using QRCode.js library globally
             new QRCode(qrContainer, {
                 text: url,
                 width: 180,
@@ -514,7 +604,6 @@
                 colorLight: "#ffffff",
                 correctLevel: QRCode.CorrectLevel.M
             });
-            // Additional styling wrapper
             const wrapper = qrContainer.querySelector('img') || qrContainer.querySelector('canvas');
             if(wrapper) {
                 wrapper.style.borderRadius = "20px";
@@ -526,7 +615,7 @@
         }
     }
     
-    // subtle glow for QR block on hover/pulse
+    // Pulse effect for QR block
     function addCinematicPulse() {
         const qrBlock = document.getElementById('qrBlock');
         if(qrBlock) {
@@ -539,7 +628,36 @@
         }
     }
 
-    // ticket button interaction + same style toast / external reservation simulation (mock purchase flow)
+    // ----- CORE FUNCTIONS: Open FullScreenplay.txt and Meaning.txt in new tabs/windows -----
+    // Since we are dealing with text files hosted alongside the HTML (relative path),
+    // we will attempt to open them as raw text files. In a real environment the files exist.
+    // To ensure the immersive experience, the functions will open them in new tabs.
+    // We'll also provide fallback demonstration in case files aren't reachable but still open.
+    function openScreenplayFile() {
+        // target filename: FullScreenplay.txt (same directory)
+        const screenplayUrl = "FullScreenplay.txt";
+        // Attempt to open in a new window/tab
+        const newWindow = window.open(screenplayUrl, "_blank");
+        if (newWindow) {
+            showToastMessage("📖 Opening full screenplay (FullScreenplay.txt)");
+        } else {
+            // fallback if blocked by popup blocker: provide instruction or alternative
+            showToastMessage("⚠️ Popup blocked. Click 'Allow popups' or open manually: " + screenplayUrl, 3000);
+            console.warn("Popup blocked for screenplay file.");
+        }
+    }
+
+    function openMeaningFile() {
+        const meaningUrl = "Meaning.txt";
+        const newWindow = window.open(meaningUrl, "_blank");
+        if (newWindow) {
+            showToastMessage("🔎 Opening scene breakdown & meaning (Meaning.txt)");
+        } else {
+            showToastMessage("⚠️ Popup blocked. Please allow popups for Meaning.txt", 3000);
+        }
+    }
+
+    // Ticket actions and header
     function initTicketActions() {
         const buyBtn = document.getElementById('buyTicketBtn');
         const officialBtn = document.getElementById('officialSiteBtn');
@@ -548,15 +666,10 @@
         const officialLink = document.getElementById('officialUrlLink');
         const mainOfficialSite = "https://sarveshwarsenthilkumar.github.io/Immersion";
 
-        // ticket redirect: open external ticketing placeholder (or official site ticket section)
         if(buyBtn) {
             buyBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // since it's a real / immersive demo, we open the official site plus a custom hash for tickets 
-                // but we simulate a "booking page" coming soon – but direct to official site in same spirit.
-                // I'll open official site with a ?tickets flag - respectful.
                 window.open(mainOfficialSite + "#tickets", "_blank");
-                // small visual feedback:
                 buyBtn.textContent = "✓ REDIRECTING TO BOX OFFICE...";
                 setTimeout(() => {
                     buyBtn.textContent = "🎟️ RESERVE YOUR SEAT →";
@@ -564,7 +677,6 @@
             });
         }
         
-        // header links behaviour: official site main, trailer (coming soon) etc.
         if(officialBtn) {
             officialBtn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -584,12 +696,8 @@
             });
         }
         if(officialLink) {
-            officialLink.addEventListener('click', (e) => {
-                // already has target="_blank", ensure it's correct
-            });
+            officialLink.addEventListener('click', (e) => {});
         }
-
-        // also add for any external click: the "official site" anchor the url direct.
         const officialUrlATag = document.querySelector('.official-link a');
         if(officialUrlATag) {
             officialUrlATag.setAttribute('href', mainOfficialSite);
@@ -597,9 +705,8 @@
         }
     }
     
-    // adding subtle typewriter reference and Frankenstein homage (consistent with original aesthetic)
+    // atmosphere and references
     function addAtmosphereNodes() {
-        const container = document.querySelector('.ticket-container');
         const refDiv = document.createElement('div');
         refDiv.style.position = 'fixed';
         refDiv.style.bottom = '12%';
@@ -631,12 +738,9 @@
         document.body.appendChild(easterEgg);
     }
 
-    // ensure qr code points to official site, and we provide an extra info card about tickets
     function initQRAndRedirect() {
         const targetUrl = "https://sarveshwarsenthilkumar.github.io/Immersion";
         generateQRCode(targetUrl);
-        
-        // optional: Add click on qr code area to open site
         const qrBox = document.getElementById('qrcode');
         if(qrBox) {
             qrBox.style.cursor = 'pointer';
@@ -646,7 +750,6 @@
         }
     }
 
-    // extra toggle: show that the site includes more info and reading about film
     function addReadingMoreHint() {
         const synopsisDiv = document.querySelector('.synopsis');
         if(synopsisDiv) {
@@ -665,7 +768,6 @@
         }
     }
     
-    // add small details for grammar poem / dead poets reference
     function addHiddenLiterary() {
         const footerGhost = document.createElement('div');
         footerGhost.style.position = 'fixed';
@@ -683,7 +785,26 @@
         document.body.appendChild(footerGhost);
     }
     
-    // final initialization
+    // initialize all including new screenplay/meaning buttons
+    function initScriptButtons() {
+        const screenplayBtn = document.getElementById('openScreenplayBtn');
+        const meaningBtn = document.getElementById('openMeaningBtn');
+        
+        if(screenplayBtn) {
+            screenplayBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openScreenplayFile();
+            });
+        }
+        if(meaningBtn) {
+            meaningBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openMeaningFile();
+            });
+        }
+    }
+    
+    // final init
     function init() {
         createParticles();
         initQRAndRedirect();
@@ -692,7 +813,9 @@
         addAtmosphereNodes();
         addReadingMoreHint();
         addHiddenLiterary();
-        // extra "now filming" pulse on title
+        initScriptButtons();   // attaching screenplay + meaning buttons
+        
+        // add subtle title glint
         const titleHead = document.querySelector('.film-title-head');
         if(titleHead) {
             setInterval(() => {
@@ -700,9 +823,13 @@
                 setTimeout(() => titleHead.style.textShadow = 'none', 400);
             }, 2800);
         }
+        
+        // optional fallback warning about text files (user-friendly)
+        console.log("IMMERSION: FullScreenplay.txt & Meaning.txt should be in root directory. Click buttons to open raw text.");
     }
     
     init();
 </script>
 </body>
 </html>
+```
