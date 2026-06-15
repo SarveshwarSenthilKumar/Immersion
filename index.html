@@ -490,8 +490,8 @@
             <div class="film-title-head">IMMERSION:<br>The Single Story of a Developer</div>
             <div class="tagline">NOW FILMING · A CINEMATIC DISRUPTION</div>
             <div class="synopsis">
-                A non-linear odyssey through code, ambition, and the ghosts of creation. <strong>IMMERSION</strong> weaves together the visceral intensity of <em>The Social Network</em>, the moral fractures of <em>Frankenstein</em>, and the poetic rebellion of <em>Dead Poets Society</em>. Witness a young developer’s rise from late-night commits to an empire of algorithms — and the singular story that haunts the architecture of modern dreams.<br><br>
-                “Everything comes from something before.” — Northrop Frye. A meditation on ambition, the ethics of innovation, and the danger of a single narrative. Shot in Toronto & the digital sprawl.
+                A non-linear odyssey through the single story of a developer filled with ups and downs of code, and the ghosts of creation and ambition. <strong>IMMERSION</strong> weaves together the intensity and technicality of <em>The Social Network</em>, the moral quandaries of <em>Frankenstein</em>, and the technological dilemmas of <em>Jurassic Park</em>. Witness a young developer’s rise from late-night commits to an empire of an alternate universe — and the singular story that haunts the architecture of modern dreams.<br><br>
+                “Everything comes from something before.” — Northrop Frye. A satire on ambition through the ethics of innovation and the dangers of technology. Shot in Toronto & the digital sprawl.
             </div>
             <ul class="details-list">
                 <li><strong>Directed by</strong> Sarveshwar Senthil Kumar</li>
@@ -508,10 +508,9 @@
             <div class="showtime-preview">
                 <h4>⧩ ADVANCE SCREENINGS (Toronto / NYC / Virtual)</h4>
                 <div class="showtimes-flex">
-                    <div class="time-slot">MAY 15 — 7:30PM</div>
-                    <div class="time-slot">MAY 16 — 9:00PM</div>
-                    <div class="time-slot">MAY 17 — 4:00PM (Q&A)</div>
-                    <div class="time-slot">MAY 18 — DIGITAL PREMIERE</div>
+                    <div class="time-slot">June 16 — TRAILER PREMIERE</div>
+                    <div class="time-slot">TBA — Online Pre-Screening (Q&A)</div>
+                    <div class="time-slot">TBA — Online Theatrical Release</div>
                 </div>
                 <div style="font-size:0.7rem; margin-top: 12px; color:#8695df;">* Early access via ticket reservation. More showtimes added weekly.</div>
             </div>
@@ -522,7 +521,7 @@
             <div style="font-size: 1.2rem; font-weight: 500; letter-spacing: 1px;">⧉ SECURE TICKETS</div>
             <div style="font-size: 0.7rem; margin: 0.5rem 0 1rem; color:#b1c0ff">Scan to explore the full experience</div>
             <div id="qrcode" class="qr-code-box"></div>
-            <button id="buyTicketBtn" class="btn-ticket">🎟️ RESERVE YOUR SEAT →</button>
+            <button id="buyTicketBtn" class="btn-ticket"> RESERVE YOUR SEAT →</button>
             
             <!-- NEW: Two immersive buttons to open screenplay and meaning text files -->
             <div class="script-buttons-group">
@@ -637,10 +636,10 @@
         // Attempt to open in a new window/tab
         const newWindow = window.open(screenplayUrl, "_blank");
         if (newWindow) {
-            showToastMessage("📖 Opening full screenplay (FullScreenplay.txt)");
+            showToastMessage(" Opening full screenplay (FullScreenplay.txt)");
         } else {
             // fallback if blocked by popup blocker: provide instruction or alternative
-            showToastMessage("⚠️ Popup blocked. Click 'Allow popups' or open manually: " + screenplayUrl, 3000);
+            showToastMessage(" Popup blocked. Click 'Allow popups' or open manually: " + screenplayUrl, 3000);
             console.warn("Popup blocked for screenplay file.");
         }
     }
@@ -649,9 +648,9 @@
         const meaningUrl = "Meaning.txt";
         const newWindow = window.open(meaningUrl, "_blank");
         if (newWindow) {
-            showToastMessage("🔎 Opening scene breakdown & meaning (Meaning.txt)");
+            showToastMessage(" Opening scene breakdown & meaning (Meaning.txt)");
         } else {
-            showToastMessage("⚠️ Popup blocked. Please allow popups for Meaning.txt", 3000);
+            showToastMessage(" Popup blocked. Please allow popups for Meaning.txt", 3000);
         }
     }
 
@@ -670,7 +669,7 @@
                 window.open(mainOfficialSite + "#tickets", "_blank");
                 buyBtn.textContent = "✓ REDIRECTING TO BOX OFFICE...";
                 setTimeout(() => {
-                    buyBtn.textContent = "🎟️ RESERVE YOUR SEAT →";
+                    buyBtn.textContent = "RESERVE YOUR SEAT →";
                 }, 1500);
             });
         }
@@ -684,7 +683,7 @@
         if(trailerBtn) {
             trailerBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                alert("🎬 Teaser trailer arrives March 2025. Stay immersed. Sign up for newsletter via official site.");
+                alert("Teaser trailer arrives June 2026. Stay immersed. Contact the team for updates.");
             });
         }
         if(pressBtn) {
@@ -718,7 +717,7 @@
         refDiv.style.backdropFilter = 'blur(4px)';
         refDiv.style.zIndex = '20';
         refDiv.style.pointerEvents = 'none';
-        refDiv.innerText = '“Why Crave Horror? → IMMERSION examines the monster inside the machine.”';
+        refDiv.innerText = 'IMMERSION examines the monster inside the machine.';
         document.body.appendChild(refDiv);
         
         const easterEgg = document.createElement('div');
@@ -732,7 +731,7 @@
         easterEgg.style.whiteSpace = 'nowrap';
         easterEgg.style.opacity = '0.45';
         easterEgg.style.fontFamily = 'monospace';
-        easterEgg.innerText = 'FRANKENSTEIN COMPLEX · ECCENTRIC CODE POETICS';
+        easterEgg.innerText = 'COMPLEX · ECCENTRIC CODER';
         document.body.appendChild(easterEgg);
     }
 
@@ -779,7 +778,7 @@
         footerGhost.style.borderRadius = '30px';
         footerGhost.style.whiteSpace = 'nowrap';
         footerGhost.style.fontFamily = 'monospace';
-        footerGhost.innerText = '“Carpe Diem · Grammar of the Unspoken” — inspired by Dead Poets, Frye & Shelley';
+        footerGhost.innerText = '“Carpe Diem';
         document.body.appendChild(footerGhost);
     }
     
