@@ -481,6 +481,7 @@
         <div class="header-links">
             <a href="#" id="officialSiteBtn">OFFICIAL SITE</a>
             <a href="#" id="trailerBtn">TRAILER</a>
+            <a href="https://sarveshwarsenthilkumar.github.io/" target="_blank" id="directorBtn">DIRECTOR</a>
         </div>
     </div>
 
@@ -500,10 +501,7 @@
                 <li><strong>Premiere</strong> Fall 2026 — ONLINE</li>
                 <li><strong>Languages</strong> English, with fragments of code & silence</li>
             </ul>
-            <div class="director-note">
-                <div class="quote-mini">“IMMERSION questions the myth of the lone genius. It’s a horror story, a coming-of-code, and a love letter to the machines that shape us.”</div>
-                <div class="badge-cinema">OFFICIAL SELECTION — Future of Cinema Forum</div>
-            </div>
+
             <!-- extra reading / official site embed preview link -->
             <div class="showtime-preview">
                 <h4>⧩ ADVANCE SCREENINGS (Toronto / NYC / Virtual)</h4>
@@ -747,23 +745,7 @@
         }
     }
 
-    function addReadingMoreHint() {
-        const synopsisDiv = document.querySelector('.synopsis');
-        if(synopsisDiv) {
-            const moreLink = document.createElement('div');
-            moreLink.style.marginTop = '12px';
-            moreLink.style.fontSize = '0.75rem';
-            moreLink.innerHTML = '<a href="#" id="readFullStory" style="color:#99abff; text-decoration:none; border-bottom:1px dashed;">⟳ Read extended essay: "The Single Story of a Developer" →</a>';
-            synopsisDiv.appendChild(moreLink);
-            const readBtn = document.getElementById('readFullStory');
-            if(readBtn) {
-                readBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    window.open("https://sarveshwarsenthilkumar.github.io/Immersion#essay", "_blank");
-                });
-            }
-        }
-    }
+    
     
     function addHiddenLiterary() {
         const footerGhost = document.createElement('div');
@@ -808,7 +790,6 @@
         initTicketActions();
         addCinematicPulse();
         addAtmosphereNodes();
-        addReadingMoreHint();
         addHiddenLiterary();
         initScriptButtons();   // attaching screenplay + meaning buttons
         
