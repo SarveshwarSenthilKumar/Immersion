@@ -16,7 +16,7 @@ A techno-psychological drama and essay film exploring the myth of the lone geniu
 
 ```
 Immersion/
-├── index.html              # Main landing page with ticket portal
+├── index.html              # Main landing page with ticket 
 ├── FullScreenplay.txt      # Complete screenplay
 ├── Meaning.txt             # Scene breakdown & literary analysis
 └── README.md               # This file
